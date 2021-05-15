@@ -13,30 +13,36 @@ class _NavBarMenuState extends State<NavBarMenu> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 100.0,
-      margin: EdgeInsets.only(top: 20, bottom: 20),
+      height: 100.0,
+      decoration: BoxDecoration(
+          //color: Colors.pinkAccent,
+          ),
+      margin: EdgeInsets.only(top: 20, bottom: 20, left: 100, right: 100),
+      padding: EdgeInsets.only(left: 100, right: 100),
+      child: Center(
+        child: Row(
+          // mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
 
-      child: Wrap(
-        // mainAxisSize: MainAxisSize.max,
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          NavigationItem(
-            title: 'Home',
-            route_name: RoutesName.FIRST_PAGE,
-          ),
-          NavigationItem(
-            title: 'About',
-            route_name: RoutesName.SECOND_PAGE,
-          ),
-          NavigationItem(
-            title: 'Contact',
-            route_name: RoutesName.FIRST_PAGE,
-          ),
-          NavigationItem(
-            title: 'Contact',
-            route_name: RoutesName.LOGIN,
-          ),
-        ],
+          children: [
+            NavigationItem(
+              title: 'Home',
+              route_name: RoutesName.FIRST_PAGE,
+            ),
+            NavigationItem(
+              title: 'About',
+              route_name: RoutesName.SECOND_PAGE,
+            ),
+            NavigationItem(
+              title: 'Contact',
+              route_name: RoutesName.FIRST_PAGE,
+            ),
+            NavigationItem(
+              title: 'Contact',
+              route_name: RoutesName.LOGIN,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -54,12 +60,15 @@ class NavigationItem extends StatelessWidget {
       onTap: () => locator<NavigationService>().navigateTo(route_name),
       focusColor: Colors.red,
       hoverColor: Colors.green,
-      focusNode: FocusNode(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50.0),
-        child: Text(
-          title,
-          style: TextStyle(fontSize: 20.0),
+      // focusNode: FocusNode(),
+      child: Container(
+        height: 100,
+        padding: EdgeInsets.symmetric(horizontal: 50.0),
+        child: Center(
+          child: Text(
+            title,
+            style: TextStyle(fontSize: 20.0),
+          ),
         ),
       ),
     );
